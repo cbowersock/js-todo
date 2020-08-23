@@ -1,32 +1,31 @@
 #projects-container {
     height: 100%; /* 100% Full-height */
-    width: 15%; /* 0 width - change this with JavaScript */
+    width: 15%;
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background: linear-gradient(#e6a7ca, #8ec8d3 80%);;
+    background: linear-gradient(#e6a7ca, #8ec8d3 80%);
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 #todos-container {
+    /*make it flex or something so the boxes go horizontally*/
     height: 100%; /* 100% Full-height */
-    width: 85%; /* 0 width - change this with JavaScript */
+    width: 85%;
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background: linear-gradient(#8ec8d3, #e6a7ca 80%);;
+    background: linear-gradient(#8ec8d3, #e6a7ca 80%);
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 .todo {
     width: 200px;
-    height: 400px;
+    height: 100px;
 	text-align: center;
 	border-style: solid;
 	margin-left: 10px;
@@ -35,4 +34,8 @@
 	background: linear-gradient(#e6a7ca, #8ec8d3 80%);
 	padding: 10px 20px 10px 20px;
 	border-radius: 15px;
+}
+
+#form-div {
+    background: (#8ec8d3);
 }
