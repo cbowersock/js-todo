@@ -1,20 +1,45 @@
-import {appendTodo} from './displayController';
+import {appendTodo} from './todosDisplay';
 
-const todos = [];
+let todos = [];
 
-const todoFactory = (title, desc, dueDate, priority) => {
+const todoFactory = (title, desc, dueDate, completed, displayed) => {
     return {
         title,
         desc,
         dueDate,
-        priority
+        completed,
+        displayed
         // will need to add project id
     };
 }
 
-const createTodo = (title, desc, dueDate, priority) => {
-    let todo = todoFactory(title, desc, dueDate, 'filler');
+const deleteTodo = (title) => {
+    const newTodos = [];
+    todos.forEach(item => {
+        if (item.title != title) {
+            newTodos.push(item);
+        }
+    })
+    todos = newTodos;
+}
+
+const markAsDisplayed = () => {
+    todos.forEach(todo => {
+        todo.displayed = true;
+    })
+}
+
+const markComplete = (title) => {
+    todos.forEach(item => {
+        if (item.title == title) {
+            item.completed = true;
+        }
+    })
+}
+
+const createTodo = (title, desc, dueDate, completed) => {
+    let todo = todoFactory(title, desc, dueDate, completed, false);
     todos.push(todo);
 }
 
-export {todoFactory, createTodo, todos};
+export {todoFactory, createTodo, deleteTodo, todos, markAsDisplayed, markComplete};

@@ -1,5 +1,13 @@
-const projectFactory = (todos) => {
-    return {todos};
+const projects = []
+let id = 0;
+
+const projectFactory = (id) => {
+    return {id};
 }
 
-export {projectFactory};
+const createProject = () => {
+    let project = projectFactory(id);
+    projects.push(project);
+}
+
+export {projects, createProject};

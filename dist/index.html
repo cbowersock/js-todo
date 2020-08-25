@@ -5,11 +5,23 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
-    <header>
-      <h1>To Do List!!!1</h1>
-    </header>
-    <div id="projects-container"></div>
+    <div id="projects-container">
+      <h1>Projects</h1>
+      <ul id="project-list">
+        <li>Default</li>
+      </ul>
+      <input type="text" id="new-project"><br>
+      <button>Add New Project</button>
+    </div>
     <div id="todos-container">
+      <h1>To Do List!!!1</h1>
+      <div id="due-todos">
+        <h2>Still Due:</h2>
+      </div>
+      <br/>
+      <div id="completed-todos">
+        <h2>Completed:</h2>
+      </div>
       <div id="form-div"></div>
       <button id="todo-button">Create New Todo!</button>
     </div>
