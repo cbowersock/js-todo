@@ -20,4 +20,4 @@ const createProject = (name, id) => {
     return project;
 }
 
-export {projects, createProject, generateId};
+export { projects, createProject, generateId };

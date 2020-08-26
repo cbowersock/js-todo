@@ -1,5 +1,5 @@
-import {projects, createProject, generateId} from './project';
-import {setCurrentId} from './index';
+import { projects, createProject, generateId } from './project';
+import { setCurrentId } from './index';
 import { displayTodones, displayTodos } from './todosDisplay';
 
 const addButton = document.getElementById('add-project');
@@ -16,7 +16,7 @@ const createProjectButton = () => {
     })
 }
 
-const projectIdButton = (project) => {
+const projectIdButton = project => {
     const button = document.createElement('button');
     button.innerText = project.name;
     button.addEventListener('click', () => {
@@ -28,4 +28,11 @@ const projectIdButton = (project) => {
     return button;
 }
 
-export {createProjectButton}
+const displayProjects = () => {
+    projects.forEach(project => {
+        const newProject = projectIdButton(project);
+        projectList.appendChild(newProject);
+    })
+}
+
+export { createProjectButton, displayProjects }

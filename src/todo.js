@@ -1,4 +1,4 @@
-import {currentProjectId} from './index';
+import { currentProjectId } from './index';
 
 let todos = [];
 
@@ -12,17 +12,18 @@ const todoFactory = (title, desc, dueDate, projectId) => {
     };
 }
 
-const deleteTodo = (title) => {
+const deleteTodo = title => {
     const newTodos = [];
     todos.forEach(item => {
         if (item.title != title) {
             newTodos.push(item);
         }
     })
+    localStorage.removeItem(title);
     todos = newTodos;
 }
 
-const markComplete = (title) => {
+const markComplete = title => {
     todos.forEach(item => {
         if (item.title == title) {
             item.completed = true;
@@ -37,4 +38,4 @@ const createTodo = (title, desc, dueDate) => {
     return todo;
 }
 
-export {todoFactory, createTodo, deleteTodo, todos, markComplete};
+export { todoFactory, createTodo, deleteTodo, todos, markComplete };

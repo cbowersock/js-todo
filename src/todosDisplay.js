@@ -1,5 +1,5 @@
-import {createTodo, todos, deleteTodo, markComplete} from './todo';
-import {currentProjectId} from './index';
+import { createTodo, todos, deleteTodo, markComplete } from './todo';
+import { currentProjectId } from './index';
 
 const todosContainer = document.getElementById('todos-container');
 const stillDue = document.getElementById('due-todos');
@@ -31,7 +31,7 @@ const createForm = () => {
     formDiv.appendChild(form);
 }
 
-const createFormField = (id) => {
+const createFormField = id => {
     const lineBreak = document.createElement('br')
     const formDiv = document.createElement('div');
     const label = document.createElement('label');
@@ -67,7 +67,7 @@ const displayTodones = () => {
     })
 }
 
-const createDueTodo = (task) => {
+const createDueTodo = task => {
     const todo = document.createElement('div');
     const p = document.createElement('p');
     p.innerText = `Title: ${task.title}
@@ -81,7 +81,7 @@ const createDueTodo = (task) => {
     stillDue.appendChild(todo);
 }
 
-const createCompleteTodo = (task) => {
+const createCompleteTodo = task => {
     const todo = document.createElement('div');
     const p = document.createElement('p');
     p.innerText = `Title: ${task.title}
@@ -123,10 +123,10 @@ function createCompleteButton(todo, title) {
 }
 
 submitButton.addEventListener('click', () => {
-    createTodo(document.getElementById('title').value, document.getElementById('description').value, document.getElementById('dueDate').value);
+    let newTodo = createTodo(document.getElementById('title').value, document.getElementById('description').value, document.getElementById('dueDate').value);
     displayTodos();
     formDiv.removeChild(document.getElementById('form'));
     todosContainer.appendChild(todoButton);
 })
 
-export {createTodoButton, displayTodos, displayTodones};
+export { createTodoButton, displayTodos, displayTodones };

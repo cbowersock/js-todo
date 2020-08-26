@@ -1,11 +1,11 @@
 import { createTodoButton } from './todosDisplay';
-import { createProjectButton } from './projectsDisplay';
+import { createProjectButton, displayProjects } from './projectsDisplay';
 import { todos } from './todo';
 import { projects } from './project';
 
 let currentProjectId = 0;
 
-const setCurrentId = (newValue) => {
+const setCurrentId = newValue => {
     currentProjectId = newValue;
 }
 
@@ -20,19 +20,19 @@ const retrieveFromLocalStorage = () => {
         if (value.includes('dueDate')) {
             let todo = JSON.parse(value);
             todos.push(todo);
-            console.log(value)
         }
         else {
             let project = JSON.parse(value);
             projects.push(project);
-            console.log(value)
         }
     })
+    displayProjects();
 }
 
+//localStorage.clear();
+
 if (localStorage.length > 0) {
-    console.log(localStorage);
-    //retrieveFromLocalStorage();
+    retrieveFromLocalStorage();
 }
 
 createProjectButton();
