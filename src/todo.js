@@ -1,15 +1,14 @@
-import {appendTodo} from './todosDisplay';
+import {currentProjectId} from './index';
 
 let todos = [];
 
-const todoFactory = (title, desc, dueDate, completed, displayed) => {
+const todoFactory = (title, desc, dueDate, projectId) => {
     return {
         title,
         desc,
         dueDate,
-        completed,
-        displayed
-        // will need to add project id
+        projectId,
+        completed: false,
     };
 }
 
@@ -23,12 +22,6 @@ const deleteTodo = (title) => {
     todos = newTodos;
 }
 
-const markAsDisplayed = () => {
-    todos.forEach(todo => {
-        todo.displayed = true;
-    })
-}
-
 const markComplete = (title) => {
     todos.forEach(item => {
         if (item.title == title) {
@@ -37,9 +30,11 @@ const markComplete = (title) => {
     })
 }
 
-const createTodo = (title, desc, dueDate, completed) => {
-    let todo = todoFactory(title, desc, dueDate, completed, false);
+const createTodo = (title, desc, dueDate) => {
+    let todo = todoFactory(title, desc, dueDate, currentProjectId);
+    localStorage.setItem(title, JSON.stringify(todo));
     todos.push(todo);
+    return todo;
 }
 
-export {todoFactory, createTodo, deleteTodo, todos, markAsDisplayed, markComplete};
+export {todoFactory, createTodo, deleteTodo, todos, markComplete};

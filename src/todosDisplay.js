@@ -1,5 +1,5 @@
-import {createTodo, todos, deleteTodo, markAsDisplayed, markComplete} from './todo';
-import {projectFactory} from './project';
+import {createTodo, todos, deleteTodo, markComplete} from './todo';
+import {currentProjectId} from './index';
 
 const todosContainer = document.getElementById('todos-container');
 const stillDue = document.getElementById('due-todos');
@@ -7,6 +7,7 @@ const completedTodos = document.getElementById('completed-todos');
 const todoButton = document.getElementById('todo-button');
 const formDiv = document.getElementById('form-div');
 const submitButton = document.createElement('button');
+
 submitButton.type = 'button';
 submitButton.innerText = 'Submit Task';
 
@@ -49,12 +50,21 @@ const createFormField = (id) => {
 }
 
 const displayTodos = () => {
+    removeAllChildNodes(stillDue);
     todos.forEach(item => {
-        if (!item.displayed) {
+        if (item.completed == false && item.projectId == currentProjectId) {
             createDueTodo(item);
         }
     })
-    markAsDisplayed();
+}
+
+const displayTodones = () => {
+    removeAllChildNodes(completedTodos);
+    todos.forEach(item => {
+        if (item.completed == true && item.projectId == currentProjectId) {
+            createCompleteTodo(item);
+        }
+    })
 }
 
 const createDueTodo = (task) => {
@@ -83,6 +93,12 @@ const createCompleteTodo = (task) => {
     completedTodos.appendChild(todo);
 }
 
+const removeAllChildNodes = parent => {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 function createDeleteButton(todo, title) {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete Task';
@@ -101,20 +117,16 @@ function createCompleteButton(todo, title) {
     completeButton.addEventListener('click', () => {
         stillDue.removeChild(todo);
         markComplete(title);
-        todos.forEach(item => {
-            if (item.completed == true) {
-                createCompleteTodo(item);
-            }
-        })
+        displayTodones();
     })
     return completeButton;
 }
 
 submitButton.addEventListener('click', () => {
-    createTodo(document.getElementById('title').value, document.getElementById('description').value, document.getElementById('dueDate').value, false);
+    createTodo(document.getElementById('title').value, document.getElementById('description').value, document.getElementById('dueDate').value);
     displayTodos();
     formDiv.removeChild(document.getElementById('form'));
     todosContainer.appendChild(todoButton);
 })
 
-export {createTodoButton};
+export {createTodoButton, displayTodos, displayTodones};
