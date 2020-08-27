@@ -1,50 +1,50 @@
 #projects-container {
-    height: 100%;
-    width: 15%;
-    position: fixed;
-    z-index: 1;
-    top: 0; 
-    left: 0;
-    background: linear-gradient(#e6a7ca, #8ec8d3 80%);
-    padding-top: 60px;
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(#e6a7ca, #8ec8d3 80%);
+  padding-top: 60px;
 }
 
 #todos-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 85%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background: linear-gradient(#8ec8d3, #e6a7ca 80%);
-    padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 85%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background: linear-gradient(#8ec8d3, #e6a7ca 80%);
+  padding-top: 60px;
 }
 
 .todo {
-    width: 250px;
-    height: 200px;
-	text-align: center;
-	border-style: solid;
-	margin-left: 5px;
-	margin-right: 5x;
-	margin-bottom: 5px;
-	background: linear-gradient(#e6a7ca, #8ec8d3 80%);
-	padding: 5px 5px 5px 5px;
-	border-radius: 15px;
+  width: 250px;
+  height: 200px;
+  text-align: center;
+  border-style: solid;
+  margin-left: 5px;
+  margin-right: 5x;
+  margin-bottom: 5px;
+  background: linear-gradient(#e6a7ca, #8ec8d3 80%);
+  padding: 5px 5px 5px 5px;
+  border-radius: 15px;
 }
 
 #due-todos {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #completed-todos {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #form-div {
-    background: (#8ec8d3);
+  background: (#8ec8d3);
 }

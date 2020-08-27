@@ -5,7 +5,8 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "prettier": "prettier --write"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,11 @@
   "homepage": "https://github.com/cbowersock/js-todo#readme",
   "devDependencies": {
     "eslint": "^7.7.0",
+    "prettier": "2.1.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.11.0"
   }
 }
