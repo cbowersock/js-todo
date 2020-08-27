@@ -123,7 +123,7 @@ function createCompleteButton(todo, title) {
 }
 
 submitButton.addEventListener('click', () => {
-    let newTodo = createTodo(document.getElementById('title').value, document.getElementById('description').value, document.getElementById('dueDate').value);
+    createTodo(document.getElementById('title').value, document.getElementById('description').value, document.getElementById('dueDate').value);
     displayTodos();
     formDiv.removeChild(document.getElementById('form'));
     todosContainer.appendChild(todoButton);
